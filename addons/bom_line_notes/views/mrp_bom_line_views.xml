@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit BOM Form View to add notes field in BOM lines -->
+    <record id="mrp_bom_form_view_inherit_notes" model="ir.ui.view">
+        <field name="name">mrp.bom.form.inherit.notes</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Add notes field after product_id in the tree view -->
+            <xpath expr="//field[@name='bom_line_ids']//field[@name='product_id']" position="after">
+                <field name="notes" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
