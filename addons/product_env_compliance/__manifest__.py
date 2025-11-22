@@ -8,7 +8,6 @@ Adds an Environmental Compliance tab to products for:
  • Linked compliance documents (shared across products)
 """,
     "author": "Tall Timber IT",
-    "version": 1.0.0,
     "category": "Product",
     'summary': 'Track environmental compliance and attach related documents to products',
     "depends": ["product"],
