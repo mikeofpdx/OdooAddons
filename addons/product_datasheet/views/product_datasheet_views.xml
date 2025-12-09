@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- List View -->
-    <record id="view_product_datasheet_tree" model="ir.ui.view">
-        <field name="name">product.datasheet.tree</field>
+    <record id="view_product_datasheet_list" model="ir.ui.view">
+        <field name="name">product.datasheet.list</field>
         <field name="model">product.datasheet</field>
         <field name="arch" type="xml">
             <list string="Datasheets">
