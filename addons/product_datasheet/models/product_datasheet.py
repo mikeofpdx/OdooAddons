@@ -48,7 +48,7 @@ class ProductDatasheet(models.Model):
             'name': 'Products',
             'type': 'ir.actions.act_window',
             'res_model': 'product.template',
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'domain': [('id', 'in', self.product_ids.ids)],
             'context': {'default_datasheet_ids': [(4, self.id)]},
         }
