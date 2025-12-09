@@ -19,12 +19,12 @@
             <xpath expr="//page[@name='general_information']" position="after">
                 <page string="Datasheets" name="datasheets">
                     <field name="datasheet_ids">
-                        <tree>
+                        <list>
                             <field name="name"/>
                             <field name="manufacturer"/>
                             <field name="part_number"/>
                             <field name="revision"/>
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </xpath>

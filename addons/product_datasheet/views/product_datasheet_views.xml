@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Tree View -->
+    <!-- List View -->
     <record id="view_product_datasheet_tree" model="ir.ui.view">
         <field name="name">product.datasheet.tree</field>
         <field name="model">product.datasheet</field>
         <field name="arch" type="xml">
-            <tree string="Datasheets">
+            <list string="Datasheets">
                 <field name="name"/>
                 <field name="manufacturer"/>
                 <field name="part_number"/>
                 <field name="revision"/>
                 <field name="product_count"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -55,11 +55,11 @@
                         </page>
                         <page string="Products">
                             <field name="product_ids">
-                                <tree>
+                                <list>
                                     <field name="default_code"/>
                                     <field name="name"/>
                                     <field name="categ_id"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
