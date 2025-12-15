@@ -63,6 +63,7 @@ class ProductTemplate(models.Model):
     tolerance = fields.Char(string="Tolerance")
     power_rating = fields.Char(string="Power Rating")
     voltage_rating = fields.Char(string="Voltage Rating")
+    part_type = fields.Char(string="Part Type")
 
     # -------------------------
     # Notes / Commentary

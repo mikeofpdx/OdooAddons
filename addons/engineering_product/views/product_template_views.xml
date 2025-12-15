@@ -37,6 +37,7 @@
                         <field name="tolerance"/>
                         <field name="power_rating"/>
                         <field name="voltage_rating"/>
+                        <field name="part_type"/>
                     </group>
 
                     <group string="Notes">
