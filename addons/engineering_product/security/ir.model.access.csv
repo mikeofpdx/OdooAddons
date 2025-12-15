@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_template_engineering,product.template.engineering,product.model_product_template,,1,1,1,0
+access_ecad_library_read,ecad.library.read,model_engineering_ecad_library,,1,0,0,0
+access_ecad_library_admin,ecad.library.admin,model_engineering_ecad_library,,1,1,1,1

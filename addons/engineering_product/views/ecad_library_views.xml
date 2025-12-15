@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Action -->
+    <record id="action_ecad_library" model="ir.actions.act_window">
+        <field name="name">ECAD Libraries</field>
+        <field name="res_model">engineering.ecad.library</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Root -->
+    <menuitem
+        id="menu_engineering_root"
+        name="Engineering"
+        sequence="10"
+    />
+
+    <menuitem
+        id="menu_ecad_root"
+        name="ECAD"
+        parent="menu_engineering_root"
+        sequence="10"
+    />
+
+    <menuitem
+        id="menu_ecad_libraries"
+        name="Libraries"
+        parent="menu_ecad_root"
+        action="action_ecad_library"
+        sequence="10"
+    />
+
+</odoo>
