@@ -85,7 +85,11 @@ Adds engineering-specific fields without altering core behavior.
 | `ecad_symbol`     | Char      | Symbol name                               |
 | `ecad_device`     | Char      | Device/technology identifier              |
 | `ecad_revision`   | Char      | ECAD revision tracking                    |
-
+| `value`           | Char      | Component Value                           |
+| `tolerance`       | Char      | Tolerance (e.g. "10%", +/-0.5pF)          |
+| `power_rating`    | Char      | Power in Watts e.g. "10W", "0.25W"        |
+| `voltage_rating`  | Char      | Voltage rating in Volts                   |
+| `part_type`       | Char      | Part Type (e.g. "Thin Film")              |
 ---
 
 ## 🔒 Data Integrity Rules
