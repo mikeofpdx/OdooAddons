@@ -4,7 +4,6 @@ from odoo import models, fields
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    # Optional engineering fields
     lifecycle = fields.Selection([
         ('design', 'Design'),
         ('prototype', 'Prototype'),
@@ -20,7 +19,7 @@ class ProductTemplate(models.Model):
     ecad_package = fields.Char(string="ECAD Package")
     footprint_rev = fields.Char(string="Footprint Revision")
 
-    value = fields.Float(string="Value")
+    value = fields.Char(string="Value")
     tolerance = fields.Char(string="Tolerance")
     power_rating = fields.Char(string="Power Rating")
     voltage_rating = fields.Char(string="Voltage Rating")

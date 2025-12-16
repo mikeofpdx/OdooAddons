@@ -31,12 +31,14 @@
 
     <!-- ECAD Library Tree View -->
     <record id="view_ecad_library_tree" model="ir.ui.view">
-        <field name="name">ecad.library.tree</field>
+        <field name="name">ecad.library.list</field>
         <field name="model">engineering.ecad.library</field>
         <field name="arch" type="xml">
             <list string="ECAD Libraries">
                 <field name="name"/>
+                <field name="filename"/>
                 <field name="description"/>
+                <field name="active"/>
             </list>
         </field>
     </record>
@@ -50,7 +52,9 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="filename"/>
                         <field name="description"/>
+                        <field name="active"/>
                     </group>
                     <notebook>
                         <page string="Assigned Parts">
@@ -68,21 +72,6 @@
                     </notebook>
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <!-- Search View for Assigned Parts -->
-    <record id="view_product_ecad_library_search" model="ir.ui.view">
-        <field name="name">product.ecad.library.search</field>
-        <field name="model">product.template</field>
-        <field name="arch" type="xml">
-            <search string="Filter Parts">
-                <field name="ecad_library_id" invisible="1"/>
-                <filter name="filter_part_value" string="Value" domain="[('value','=',self)]" context="{}"/>
-                <filter name="filter_part_tolerance" string="Tolerance" domain="[('tolerance','=',self)]" context="{}"/>
-                <filter name="filter_voltage" string="Voltage Rating" domain="[('voltage_rating','=',self)]" context="{}"/>
-                <filter name="filter_power" string="Power Rating" domain="[('power_rating','=',self)]" context="{}"/>
-            </search>
         </field>
     </record>
 </odoo>
