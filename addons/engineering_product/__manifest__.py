@@ -16,7 +16,9 @@ Engineering Product Tab for Odoo 18
     'data': [
         'views/product_template_views.xml',
         'views/engineering_mass_edit_wizard_view.xml',
-        'data/server_actions.xml'
+        'data/server_actions.xml',
+        'views/server_action.xml'
+    
     ],
     'installable': True,
     'application': False,
