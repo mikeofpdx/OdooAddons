@@ -34,10 +34,10 @@
         <field name="name">ecad.library.tree</field>
         <field name="model">engineering.ecad.library</field>
         <field name="arch" type="xml">
-            <tree string="ECAD Libraries">
+            <list string="ECAD Libraries">
                 <field name="name"/>
                 <field name="description"/>
-            </tree>
+            </list>
         </field>
     </record>
 
