@@ -14,11 +14,12 @@ Engineering Product Tab for Odoo 18
     'author': "MikeofPdx",
     'depends': ['product'],
     'data': [
-        'views/ecad_library_views.xml',
+        'security/ir.model.access.csv',
         'views/product_template_views.xml',
+        'views/ecad_library_views.xml',
         'views/engineering_mass_edit_wizard_view.xml',
         'views/server_action.xml',
-        'security/ir.model.access.csv',
+        
     ],
     'installable': True,
     'application': False,
