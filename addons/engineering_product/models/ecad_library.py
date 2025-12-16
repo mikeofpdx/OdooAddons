@@ -26,7 +26,7 @@ class EcadLibrary(models.Model):
     description = fields.Text()
 
     active = fields.Boolean(default=True)
-
+    
     _sql_constraints = [
         (
             "filename_unique",
