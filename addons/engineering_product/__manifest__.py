@@ -11,10 +11,12 @@ Engineering Product Tab for Odoo 18
 - Adds Engineering, ECAD Mapping, Electrical Characteristics, and Notes sections
 - No extra fields created for PLM Part Number
 """,
-    'author': "Your Name",
+    'author': "MikeofPdx",
     'depends': ['product'],
     'data': [
         'views/product_template_views.xml',
+        'views/engineering_mass_edit_wizard_view.xml',
+        'data/server_actions.xml'
     ],
     'installable': True,
     'application': False,

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="engineering_mass_edit_wizard_form" model="ir.ui.view">
+        <field name="name">engineering.mass.edit.wizard.form</field>
+        <field name="model">engineering.mass.edit.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Assign Engineering Attributes">
+                <group>
+                    <field name="part_type"/>
+                    <field name="tolerance"/>
+                    <field name="power_rating"/>
+                    <field name="voltage_rating"/>
+                </group>
+
+                <footer>
+                    <button name="action_apply"
+                            type="object"
+                            string="Apply"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
