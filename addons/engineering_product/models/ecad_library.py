@@ -16,7 +16,13 @@ class EcadLibrary(models.Model):
         required=True,
         help="Fusion 360 Electronics .lbr filename"
     )
-
+    
+    product_ids = fields.One2many(
+        'product.template',
+        'ecad_library_id',
+        string='Products'
+    )
+    
     description = fields.Text()
 
     active = fields.Boolean(default=True)
