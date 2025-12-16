@@ -8,7 +8,9 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="filename"/>
                 <field name="description"/>
+                <field name="active"/>
             </list>
         </field>
     </record>
@@ -22,7 +24,9 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="filename"/>
                         <field name="description"/>
+                        <field name="active"/>
                     </group>
                 </sheet>
             </form>
