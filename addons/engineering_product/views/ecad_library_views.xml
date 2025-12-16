@@ -59,14 +59,14 @@
                     <notebook>
                         <page string="Assigned Parts">
                             <field name="product_ids">
-                                <list string="Products in this Library" editable="false" create="false" delete="false">
+                                <tree string="Products in this Library" editable="false" create="false" delete="false">
                                     <field name="name"/>
                                     <field name="default_code" string="PLM Part Number"/>
                                     <field name="part_type"/>
                                     <field name="voltage_rating"/>
                                     <field name="power_rating"/>
                                     <field name="engineering_notes"/>
-                                </list>
+                                </tree>
                             </field>
                         </page>
                     </notebook>
