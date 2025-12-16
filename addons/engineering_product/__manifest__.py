@@ -1,17 +1,22 @@
+# -*- coding: utf-8 -*-
 {
-    "name": "Engineering Product / ECAD Extensions",
-    "version": "1.0.0",
-    "category": "Manufacturing",
-    "summary": "PLM-style engineering and ECAD metadata for products",
-    "author": "Your Company",
-    "depends": [
-        "product",
+    'name': "Engineering Product Tab",
+    'version': "1.0",
+    'category': 'Manufacturing',
+    'summary': "Adds an Engineering tab to Products using default_code as PLM Part Number",
+    'description': """
+Engineering Product Tab for Odoo 18
+
+- Uses default_code as PLM Part Number
+- Adds Engineering, ECAD Mapping, Electrical Characteristics, and Notes sections
+- No extra fields created for PLM Part Number
+""",
+    'author': "Your Name",
+    'depends': ['product'],
+    'data': [
+        'views/product_template_views.xml',
     ],
-    "data": [
-        "security/ir.model.access.csv",
-        "views/ecad_library_views.xml",
-        "views/product_template_views.xml",
-    ],
-    "installable": True,
-    "application": False,
+    'installable': True,
+    'application': False,
+    'auto_install': False,
 }
