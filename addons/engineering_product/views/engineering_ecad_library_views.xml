@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="engineering_ecad_library_view_list" model="ir.ui.view">
+        <field name="name">engineering.ecad.library.list</field>
+        <field name="model">engineering.ecad.library</field>
+        <field name="arch" type="xml">
+            <list string="ECAD Libraries">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_engineering_ecad_library_form" model="ir.ui.view">
+        <field name="name">engineering.ecad.library.form</field>
+        <field name="model">engineering.ecad.library</field>
+        <field name="arch" type="xml">
+            <form string="Library">
+                <header>
+                <button name="action_export_library_to_csv" 
+                        string="Export for ECAD" 
+                        type="object" 
+                        class="oe_highlight" 
+                        icon="fa-download"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_products" 
+                                type="object"
+                                class="oe_stat_button" 
+                                icon="fa-cubes">
+                            <field name="product_count" widget="statinfo" string="Products"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="description"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Products">
+                            <!-- Hack: to allow Selection, use many2many even though libray:product is One to Many.  -->
+                            <field name="product_ids"
+                                widget="many2many" 
+                                domain="[('ecad_library_id', '=', False)]"
+                                context="{'default_ecad_library_id': id}">
+                                <list editable="bottom"> <!-- engineering attributes may be freely edited in the list view -->
+                                    <button name="action_open_record" type="object" icon="fa-external-link" title="Open Product"/>
+                                    <field name="default_code" readonly="1"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="ecad_symbol" readonly="lifecycle != 'draft'"/>
+                                    <field name="ecad_package" readonly="lifecycle != 'draft'"/>
+                                    <field name="value" readonly="lifecycle != 'draft'"/>
+                                    <field name="tolerance" readonly="lifecycle != 'draft'"/>
+                                    <field name="part_type" readonly="lifecycle != 'draft'"/>
+                                    <field name="power_rating" readonly="lifecycle != 'draft'"/>
+                                    <field name="voltage_rating" readonly="lifecycle != 'draft'"/>
+                                    <field name="lifecycle" 
+                                        widget="selection" 
+                                        readonly="0"  
+                                        decoration-info="lifecycle == 'draft'" 
+                                        decoration-success="lifecycle in ('prototype', 'production')" 
+                                        decoration-danger="lifecycle == 'obsolete'" 
+                                        bold="1" 
+                                        options="{'no_open': True, 'no_create': True}"/>
+                                </list>
+                            </field>
+                            <!-- Mass Add Button
+                            <button name="action_add_products" string="Add Products" type="object" class="btn-primary"/> 
+                            -->
+                        </page>
+                    </notebook>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>    
+    <!-- Search View -->
+    <record id="view_product_engineering_ecad_library_search" model="ir.ui.view">
+        <field name="name">engineering.ecad.library.search</field>
+        <field name="model">engineering.ecad.library</field>
+        <field name="arch" type="xml">
+            <search string="Search ECAD Libraries">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+    <!-- Action -->
+    <record id="action_product_engineering" model="ir.actions.act_window">
+        <field name="name">Engineering</field>
+        <field name="res_model">engineering.ecad.library</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first library entry
+            </p>
+        </field>
+    </record>
+
+    
+    
+    <!-- Menu -->
+    <menuitem id="menu_product_engineering"
+        name="Engineering"
+        parent="stock.menu_stock_root"
+        action="action_product_engineering"
+        sequence="50"/>
+
+
+    
+</odoo>
