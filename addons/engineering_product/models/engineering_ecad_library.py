@@ -2,6 +2,7 @@ import io
 import csv
 import base64
 from odoo import models, fields, api
+from odoo.osv import expression
 
 
 class EngineeringEcadLibrary(models.Model):
@@ -84,9 +85,13 @@ class EngineeringEcadLibrary(models.Model):
 
     
     @api.model
-    def _search_display_name(self, operator, value, limit=None):
-        """Modernized search logic returning a domain instead of recordset/IDs"""
+    def _search_display_name(self, operator, value, *args, **kwargs):
+        """
+        Odoo 18 Universal Signature. 
+        Accepts any number of arguments to prevent 'unexpected keyword' errors.
+        """
         if operator in ('like', 'ilike', '=like', '=ilike'):
-            # Return the domain list directly
-            return ['|', ('name', operator, value), ('code', operator, value)]
-        return super()._search_display_name(operator, value, limit=limit)
+            domain = kwargs.get('domain', [])
+            search_domain = ['|', ('name', operator, value), ('code', operator, value)]
+            return expression.AND([domain, search_domain])
+        return super()._search_display_name(operator, value, *args, **kwargs)

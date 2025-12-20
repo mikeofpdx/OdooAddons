@@ -13,20 +13,20 @@
                             <field name="lifecycle" widget="statusbar" options="{'clickable': '1'}"/>
                         </group>
                         <group string="ECAD Mapping" invisible="lifecycle == 'obsolete'">
-                            <field name="ecad_library_id" options="{'no_create': True}"/>
-                            <field name="ecad_symbol"/>
-                            <field name="ecad_package"/>
+                            <field name="ecad_library_id" options="{'no_create': True}" readonly="lifecycle != 'draft'"/>
+                            <field name="ecad_symbol" readonly="lifecycle != 'draft'"/>
+                            <field name="ecad_package" readonly="lifecycle != 'draft'"/>
                         </group>
                     </group>
                     <group string="Technical Specifications">
                         <group>
-                            <field name="value"/>
-                            <field name="tolerance"/>
-                            <field name="part_type"/>
+                            <field name="value" readonly="lifecycle != 'draft'"/>
+                            <field name="tolerance" readonly="lifecycle != 'draft'"/>
+                            <field name="part_type" readonly="lifecycle != 'draft'"/>
                         </group>
                         <group>
-                            <field name="power_rating"/>
-                            <field name="voltage_rating"/>
+                            <field name="power_rating" readonly="lifecycle != 'draft'"/>
+                            <field name="voltage_rating" readonly="lifecycle != 'draft'"/>
                         </group>
                     </group>
                 </page>
