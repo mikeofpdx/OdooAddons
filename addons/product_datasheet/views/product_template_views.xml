@@ -24,6 +24,21 @@
                             <field name="manufacturer"/>
                             <field name="part_number"/>
                             <field name="revision"/>
+                            <button
+                                name="action_view_datasheet"
+                                type="object"
+                                string="View"
+                                icon="fa-eye"
+                                class="btn-link"
+                                invisible="not attachment_id"
+                            />
+                            <button
+                                name="action_download_datasheet"
+                                type="object"
+                                string="Download"
+                                icon="fa-download"
+                                class="btn-link"
+                            />
                         </list>
                     </field>
                 </page>

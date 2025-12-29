@@ -1,6 +1,6 @@
 {
     'name': 'Product Datasheets',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.0.1',
     'category': 'Inventory',
     'summary': 'Manage shared datasheets for products',
     'description': """

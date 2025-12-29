@@ -52,3 +52,24 @@ class ProductDatasheet(models.Model):
             'domain': [('id', 'in', self.product_ids.ids)],
             'context': {'default_datasheet_ids': [(4, self.id)]},
         }
+    def action_view_datasheet(self):
+        self.ensure_one()
+
+        # 1) Prefer explicit attachment
+        if self.attachment_id:
+            return {
+                'type': 'ir.actions.act_url',
+                'url': f'/web/content/{self.attachment_id.id}?download=false',
+                'target': 'new',
+            }
+
+        # 2) Fallback to binary field
+        if self.datasheet_file:
+            return {
+                'type': 'ir.actions.act_url',
+                'url': f'/web/content/{self._name}/{self.id}/datasheet_file'
+                    f'?filename={self.datasheet_filename}&download=false',
+                'target': 'new',
+            }
+
+    return False
