@@ -1,7 +1,7 @@
 
 {
     'name': 'BOM Line Notes',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.0.1',
     'category': 'Manufacturing',
     'summary': 'Add notes field to BOM lines',
     'description': """
@@ -16,6 +16,6 @@
         'views/mrp_bom_line_views.xml',
     ],
     'installable': True,
-    'application': False,
+    'application': True,
     'auto_install': False,
 }
