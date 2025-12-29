@@ -49,13 +49,14 @@ class EngineeringEcadLibrary(models.Model):
         writer = csv.writer(output, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         
         # Header Row - Tailored for ECAD Import
-        writer.writerow(['Library', 'Part_Number', 'Symbol', 'Footprint', 'Value', 'Tolerance', 'Voltage_Rating', 'Power_Rating', 'Lifecycle'])
+        writer.writerow(['Library', 'Part_Number', 'DeviceSet', 'Symbol', 'Footprint', 'Value', 'Tolerance', 'Voltage_Rating', 'Power_Rating', 'Lifecycle'])
         
         # Loop through the products linked to THIS library
         for product in self.product_ids:
             writer.writerow([
                 self.code or '',
                 product.default_code or '',
+                product.ecad_deviceset or '',
                 product.ecad_symbol or '',
                 product.ecad_package or '',
                 product.value or '',
