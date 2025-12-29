@@ -11,6 +11,14 @@
                 <field name="part_number"/>
                 <field name="revision"/>
                 <field name="product_count"/>
+                <button
+                    name="action_view_datasheet"
+                    type="object"
+                    string="View"
+                    icon="fa-eye"
+                    class="btn-link"
+                    invisible="not datasheet_file and not attachment_id"
+                />
             </list>
         </field>
     </record>
@@ -28,6 +36,15 @@
                                 class="oe_stat_button" 
                                 icon="fa-cubes">
                             <field name="product_count" widget="statinfo" string="Products"/>
+                        </button>
+                        <button name="action_view_datasheet"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-file-pdf-o"
+                                invisible="not datasheet_file and not attachment_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">View</span>
+                            </div>
                         </button>
                     </div>
                     <group>
@@ -104,8 +121,8 @@
 
     <!-- Menu -->
     <menuitem id="menu_product_datasheet"
-              name="Datasheets"
-              parent="stock.menu_stock_root"
-              action="action_product_datasheet"
-              sequence="50"/>
+        name="Datasheets"
+        parent="stock.menu_stock_root"
+        action="action_product_datasheet"
+        sequence="50"/>
 </odoo>

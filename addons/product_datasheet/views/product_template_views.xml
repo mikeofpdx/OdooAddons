@@ -30,7 +30,7 @@
                                 string="View"
                                 icon="fa-eye"
                                 class="btn-link"
-                                invisible="not attachment_id"
+                                invisible="not attachment_id and not datasheet_file"
                             />
                             <button
                                 name="action_download_datasheet"
@@ -38,6 +38,7 @@
                                 string="Download"
                                 icon="fa-download"
                                 class="btn-link"
+                                invisible="not attachment_id and not datasheet_file"
                             />
                         </list>
                     </field>
