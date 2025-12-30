@@ -14,6 +14,7 @@
                         </group>
                         <group string="ECAD Mapping" invisible="lifecycle == 'obsolete'">
                             <field name="ecad_library_id" options="{'no_create': True}" readonly="lifecycle != 'draft'"/>
+                            <field name="ecad_deviceset" readonly="lifecycle != 'draft'"/>
                             <field name="ecad_symbol" readonly="lifecycle != 'draft'"/>
                             <field name="ecad_package" readonly="lifecycle != 'draft'"/>
                         </group>

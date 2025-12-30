@@ -36,6 +36,7 @@ Extends `product.template` with essential technical specifications:
 | Field Label | Technical Name | Type | Description |
 | :--- | :--- | :--- | :--- |
 | **Lifecycle Status** | `lifecycle` | Selection | Draft, Prototype, Production, or Obsolete. |
+| **ECAD Deviceset** | 'ecad_deviceset' | Char | Eagle Deviceset root. |
 | **ECAD Device** | `ecad_symbol` | Char | Schematic symbol name. |
 | **ECAD Package** | `ecad_package` | Char | PCB footprint/package name. |
 | **Value/Specs** | `value`, `tolerance`, `part_type`, `voltage_rating`, `power_rating`| Char | Component-specific technical data. |
@@ -50,6 +51,7 @@ Extends `product.template` with essential technical specifications:
 * **Form View:** Adds an "Engineering" tab with conditional visibility and lifecycle-based `readonly` constraints.
 * **Search View:** Adds "Unassigned to Library" and "Draft Lifecycle" filters + "Group By" options.
 * **Export Logic:** Python-based CSV generation using `io.StringIO` and `base64` for seamless browser downloads.
+* **Controller:** /api/ecad/resolve/v1 json api interface between ECAD system (Eagle) and Odoo to pull part attributes from Odoo into ECAD.  See "Resolver" web app and related Eagle/Fusion360 ULPs.
 
 ## Installation
 

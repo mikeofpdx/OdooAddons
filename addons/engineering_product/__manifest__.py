@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Engineering Product Extension',
-    'version': '18.0.1.1.1',
+    'version': '18.0.1.1.2',
     'category': 'Engineering/Product',
     'summary': 'Electronic component attributes and ECAD library management',
     'description': """
     Engineering Product Integration & ECAD Library Management
     ==========================================================
 
-    This module bridges the gap between hardware engineering and ERP data management. 
+    This module bridges the gap between electronic hardware engineering and ERP data management. 
     It extends the standard Odoo product catalog to support technical electronics 
-    specifications and introduces a robust lifecycle management system.
+    specifications and introduces a robust lifecycle management system as well as web controller accessible by ECAD tools.
 
     Key Highlights:
     ---------------

@@ -55,6 +55,7 @@
                                     <button name="action_open_record" type="object" icon="fa-external-link" title="Open Product"/>
                                     <field name="default_code" readonly="1"/>
                                     <field name="name" readonly="1"/>
+                                    <field name="ecad_deviceset" readonly="lifecycle != 'draft'"/>
                                     <field name="ecad_symbol" readonly="lifecycle != 'draft'"/>
                                     <field name="ecad_package" readonly="lifecycle != 'draft'"/>
                                     <field name="value" readonly="lifecycle != 'draft'"/>
