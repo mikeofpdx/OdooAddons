@@ -6,6 +6,14 @@
         <field name="model">engineering.ecad.library</field>
         <field name="arch" type="xml">
             <list string="ECAD Libraries">
+                <header>
+                    <button
+                        name="action_export_all_libraries_to_csv"
+                        type="object"
+                        string="Export ALL for ECAD"
+                        icon="fa-download"
+                        class="oe_highlight"/>
+                </header>
                 <field name="name"/>
                 <field name="code"/>
                 <field name="description"/>

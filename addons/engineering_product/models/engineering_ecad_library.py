@@ -49,7 +49,7 @@ class EngineeringEcadLibrary(models.Model):
         writer = csv.writer(output, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         
         # Header Row - Tailored for ECAD Import
-        writer.writerow(['Library', 'Part_Number', 'DeviceSet', 'Symbol', 'Footprint', 'Value', 'Tolerance', 'Voltage_Rating', 'Power_Rating', 'Lifecycle'])
+        writer.writerow(['Library', 'Part_Number', 'DeviceSet', 'Symbol', 'Footprint', 'Value', 'Tolerance', 'Voltage_Rating', 'Power_Rating', 'Lifecycle', 'Part_Type'])
         
         # Loop through the products linked to THIS library
         for product in self.product_ids:
@@ -63,7 +63,8 @@ class EngineeringEcadLibrary(models.Model):
                 product.tolerance or '',
                 product.voltage_rating or '',
                 product.power_rating or '',
-                product.lifecycle or ''
+                product.lifecycle or '',
+                product.part_type or ''
             ])
         
         # Prepare the file download
@@ -84,6 +85,70 @@ class EngineeringEcadLibrary(models.Model):
             'target': 'new',
         }
 
+    def action_export_all_libraries_to_csv(self):
+        """
+        Export ALL products assigned to ANY ECAD library into one CSV file
+        """
+        output = io.StringIO()
+        writer = csv.writer(
+            output,
+            delimiter=',',
+            quotechar='"',
+            quoting=csv.QUOTE_MINIMAL
+        )
+
+        # Header Row (same as single-library export)
+        writer.writerow([
+            'Library',
+            'Part_Number',
+            'DeviceSet',
+            'Symbol',
+            'Footprint',
+            'Value',
+            'Tolerance',
+            'Voltage_Rating',
+            'Power_Rating',
+            'Lifecycle',
+            'Part_Type'
+        ])
+
+        # Fetch all products assigned to a library
+        products = self.env['product.template'].search([
+            ('ecad_library_id', '!=', False)
+        ])
+
+        for product in products:
+            writer.writerow([
+                product.ecad_library_id.code or '',
+                product.default_code or '',
+                product.ecad_deviceset or '',
+                product.ecad_symbol or '',
+                product.ecad_package or '',
+                product.value or '',
+                product.tolerance or '',
+                product.voltage_rating or '',
+                product.power_rating or '',
+                product.lifecycle or '',
+                product.part_type or '',
+            ])
+
+        data = output.getvalue().encode('utf-8')
+        filename = "odoo_export.csv"
+
+        attachment = self.env['ir.attachment'].create({
+            'name': filename,
+            'type': 'binary',
+            'datas': base64.b64encode(data),
+            'mimetype': 'text/csv',
+        })
+
+        return {
+            'type': 'ir.actions.act_url',
+            'url': f'/web/content/{attachment.id}?download=true',
+            'target': 'new',
+        }
+
+    
     
     @api.model
     def _search_display_name(self, operator, value, *args, **kwargs):

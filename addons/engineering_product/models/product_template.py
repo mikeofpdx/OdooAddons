@@ -99,6 +99,7 @@ class ProductTemplate(models.Model):
                 'name': product.name,
                 'value': product.value,
                 'tolerance': product.tolerance,
+                'part_type': product.part_type,
                 'power_rating': product.power_rating,
                 'voltage_rating': product.voltage_rating,
                 'lifecycle': product.lifecycle,
