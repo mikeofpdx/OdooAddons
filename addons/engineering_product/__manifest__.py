@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Engineering Product Extension',
-    'version': '18.0.1.1.2',
+    'version': '18.0.1.1.3',
     'category': 'Engineering/Product',
     'summary': 'Electronic component attributes and ECAD library management',
     'description': """

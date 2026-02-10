@@ -22,6 +22,7 @@
         </field>
     </record>
 
+
     <!-- Form View -->
     <record id="view_engineering_ecad_library_form" model="ir.ui.view">
         <field name="name">engineering.ecad.library.form</field>
